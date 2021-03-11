@@ -1,0 +1,10 @@
+# Example metal3 clouds config, get the password via
+# oc get secret/metal3-ironic-password -n openshift-machine-api -o json | jq -r '.data.password' | base64 -d
+clouds:
+  metal3:
+    auth_type: http_basic
+    auth:
+      username: ironic-user
+      password: your-password-goes-here
+    baremetal_endpoint_override: http://172.22.0.3:6385
+    baremetal_introspection_endpoint_override: http://172.22.0.3:5050
